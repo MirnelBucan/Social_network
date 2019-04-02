@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/images/logo2.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+  	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <title>Profile</title>
+    </head>
+
+<body>
+	<header id="main-header">
+		<div class="container">
+			<h1>Profile</h1>
+		</div>
+	</header>
+
+	<nav id="navbar">
+		<div class="container">
+			<ul>
+				<li><a href="/Home">Home</a></li>
+				<li><a href="/profile">Profile</a></li>
+				<li><a href="/post">Posts</a></li>
+				<li><a href="/chat">Chat</a></li>
+				<li><a href="/user/signout">Log out</a></li>
+			</ul>
+		</div>
+	</nav>
+	
+	<img src="/images/image.jpg" style="width: 200px; height: auto; display: block; margin: 5.5% auto">
+<%if (profile === 'other') { %>
+	<ul style="text-align: center; font-size: 22px;">
+		<li><a> <b>First Name:</b><%=user.name%></a></li>
+		<li><a> <b>Last Name:</b> <%=user.surname%></a></li>
+		<li><a> <b>Username:</b><%=user.username%></a></li>
+		<li><a> <b>E-mail:</b> <%=user.email%></a></li>
+	</ul>
+<% } else { %>
+	<form id="form-user" action="#" method="post" style="position: relative; left: 530px;">
+		<div class="form-box error" data-errormsg="">
+			<label for="input-first"  ><b>First Name: </b></label>
+			<input type="text" id="input-first" autofocus placeholder="First Name" tabindex="1" disabled value="<%=user.name%>">
+		</div>
+		<div class="form-box error" data-errormsg="">
+			<label for="input-last"><b>Last Name: </b></label>
+			<input type="text" id="input-last" autofocus placeholder="Last Name" tabindex="2" disabled value="<%=user.surname%>">
+		</div>
+		<div class="form-box error" data-errormsg="">
+			<label for="input-user"><b>Username: </b></label>
+			<input type="text" id="input-last" autofocus placeholder="Username" tabindex="3" disabled value="<%=user.username%>">
+		</div>
+		<div class="form-box" data-errormsg="">
+			<label for="input-email"><b>E-mail: </b></label>
+			<input type="email" id="input-email" required placeholder="E-mail Address" tabindex="5" disabled value="<%=user.email%>">
+		</div>
+		<div class="form-box">
+			<button id="button-cancel">Submit</button>
+		</div>
+	</form>
+<% }%>
+	<footer id="main-footer">
+		<p>Copyright &copy; 2019 Social Network</p>
+	</footer>
+
+</body>
+</html>

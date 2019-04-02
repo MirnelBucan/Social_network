@@ -1,0 +1,524 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box!important;
+}
+
+ body {
+	font-family: 'Cormorant Garamond', serif;
+	/*background-color: #eeeeeb;*/
+  color: #a25e5c;
+  font-size: 18px;
+  overflow-x: hidden;
+}
+
+
+ /****************Navigacijski meni***************************/
+ .navigacijski-meni {
+  z-index: 9999999999;
+  /*font-size: 20px;*/
+	text-align: center;
+	margin: 0px;
+	padding: 10px;
+  background-color: #a25e5c;
+  width: 100%;
+  font-family: 'Cinzel', serif;
+  display: flex;
+  opacity: 0.8;
+  }
+
+  .nav-meni-ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+
+  .navigacijski-meni a{ 
+  font-size: 20px;
+  text-align: center;
+  padding: 1vw 1vw;
+  text-decoration: none;
+  color: #a25e5c;
+  position: relative;
+  top: 5px;
+
+}
+
+.navigacijski-meni a:hover {
+
+  color: #eeeeeb;
+  background-color: #bcacaa;
+  text-decoration: none;
+}
+
+.nav-logo {
+  width: 50px;
+  align-items: center;
+  vertical-align: middle;
+ 
+}
+
+.nav-logo-link {
+  top: 0px !important;
+  padding: 0px 15px !important;
+}
+.nav-logo-link:hover {
+  background-color: #eeeeeb !important;
+  padding: 0px 15px !important;
+}
+
+.ul-2 {
+  margin-left: auto;
+}
+
+.ul-2 li a:hover {
+  background-color: transparent !important;
+  color: #a25e5c;
+}
+
+/***************logi in****************************/
+
+/* Style the form - display items horizontally */
+.form-inline { 
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  width:100%;
+}
+
+/* Add some margins for each label */
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+/* Style the input fields */
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+
+.form-inline {  
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  position: relative;
+  left: 250px;
+}
+
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.form-inline button {
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.form-inline button:hover {
+  background-color: #a25e5c;
+}
+
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+  
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/*********************sing up************************/
+*::after,
+*:before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+        }
+       
+form{
+    margin: 2rem;
+    width: 800px;
+}
+.form-box{
+    padding: 1rem;
+    clear: both;
+    width: 100%;
+    position: relative;
+}
+.form-box label{
+    font-size: 1rem;
+    float: left;
+    width: 100px;
+    margin-right: 20px;
+}
+.form-box input{
+    font-size: 1rem;
+    width: 300px;
+    padding: 0.25rem 1rem;
+}
+.form-box select{
+    font-size: 1rem;
+    width: 300px;
+    padding: 0.25rem 1rem;
+}
+.form-box option{
+    font-size: 1rem;
+    width: 300px;
+    padding: 0.25rem 1rem;
+}
+.form-box input[type="checkbox"]{
+    font-size: 1rem;
+}
+.form-box button{
+    font-size: 1rem;
+    border: none;
+    padding: 0.25rem 2rem;
+    margin-right: 1rem;
+    background-color: #a25e5c;
+    cursor: pointer;
+}
+  
+.error::after{
+  background-color: #a25e5c;
+  color:black;
+  font-size: 1rem;
+  line-height: 1.8;
+  width: 350px;
+  padding-left: 1rem;
+  position:absolute;
+  right: 0;
+  content: attr(data-errormsg);
+}
+
+.image-form {
+  display: flex;
+}
+
+.image, .reg-form {
+  width: 50%;
+}
+
+.reg-forma{
+  position: relative;
+  left: 160px; 
+}
+
+.nav-li-logo{
+  position: relative;
+  left: 22px;
+}
+
+/*** Home style ***/
+
+.container{
+	width: 80%;
+	margin:auto;
+	overflow: hidden; /*da nema scrollbars iako nesto ide van kontejnera svog*/
+}
+
+#commments
+#main-header{
+	background-color: #eeeeeb;
+	color:#a25e5c;
+	text-align: center;
+}
+
+#main-header h1{
+	font-size: 40px;
+    text-align: center;
+}
+
+#navbar{
+	background-color: #a25e5c;
+	color:#fff;
+}
+
+#navbar ul{
+	padding: 0;
+	list-style: none;
+	position: relative;
+	/*left: 455px; */
+    text-align: center;
+}
+
+#navbar li{
+	display: inline;
+}
+
+#navbar a{
+	color:#fff;
+	text-decoration: none;
+	font-size: 25px;
+	padding-right: 100px;
+}
+
+#showcase{
+	background-image: url("../images/soc.png");
+	background-position: relative;
+	bottom: 500px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+#showcase h1{
+	color:black;
+	font-size: 50px;
+	font-weight: bolder;
+	line-height: 1.6em;
+	padding-top:300px;
+	font-size: 50px;
+}
+
+#main{
+	float:left;
+	width: 70%;
+	padding: 0 30px;
+	box-sizing: border-box;
+}
+
+#sidebar{
+	float:right;
+	width: 30%;
+	background: #333;
+	color:#fff;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+#main-footer{
+	background: #a25e5c;
+	color:#fff;
+	text-align: center;
+	padding: 20px;
+	margin-top: 40px;
+}
+
+@media(max-width: 600px){
+	#main{
+		width: 100%;
+		float: none;
+	}
+	
+	#sidebar{
+		width: 100%;
+		float: none;
+	}
+
+
+
+/**** posts ****/
+.tip {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  background: transparent;
+  border: 10px solid #ccc;
+}
+
+.tip-up {
+  top: -25px; /* Same as body margin top + border */
+  left: 10px;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-top-color: transparent;
+}
+
+.tip-down {
+  bottom: -25px;
+  left: 10px;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;  
+}
+
+.tip-left {
+  top: 10px;
+  left: -25px;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;  
+}
+
+.tip-right {
+  top: 10px;
+  right: -25px;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;  
+}
+
+.dialogbox .body {
+  position: relative;
+  max-width: 300px;
+  height: auto;
+  margin: 20px 10px;
+  padding: 5px;
+  background-color: #DADADA;
+  border-radius: 3px;
+  border: 5px solid #ccc;
+}
+
+.body .message {
+  min-height: 30px;
+  border-radius: 3px;
+  font-family: Arial;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #797979;
+}
+
+/* Chat containers */
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/* Darker chat container */
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+/* Clear floats */
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Style images */
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+/* Style the right image */
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+/* Style time text */
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+/* Style time text */
+.time-left {
+  float: left;
+  color: #999;
+}
+
+h2{
+  position: relative;
+  left: 600px;
+}
+
+#comments {
+ display:none;
+}
+
+/*font Awesome http://fontawesome.io*/
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+/*Comment List styles*/
+.comment-list .row {
+  margin-bottom: 0px;
+}
+.comment-list .panel .panel-heading {
+  padding: 4px 15px;
+  position: absolute;
+  border:none;
+  /*Panel-heading border radius*/
+  border-top-right-radius:0px;
+  top: 1px;
+}
+.comment-list .panel .panel-heading.right {
+  border-right-width: 0px;
+  /*Panel-heading border radius*/
+  border-top-left-radius:0px;
+  right: 16px;
+}
+.comment-list .panel .panel-heading .panel-body {
+  padding-top: 6px;
+}
+.comment-list figcaption {
+  /*For wrapping text in thumbnail*/
+  word-wrap: break-word;
+}
+/* Portrait tablets and medium desktops */
+@media (min-width: 768px) {
+  .comment-list .arrow:after, .comment-list .arrow:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+  }
+  .comment-list .panel.arrow.left:after, .comment-list .panel.arrow.left:before {
+    border-left: 0;
+  }
+  /*****Left Arrow*****/
+  /*Outline effect style*/
+  .comment-list .panel.arrow.left:before {
+    left: 0px;
+    top: 30px;
+    /*Use boarder color of panel*/
+    border-right-color: inherit;
+    border-width: 16px;
+  }
+  /*Background color effect*/
+  .comment-list .panel.arrow.left:after {
+    left: 1px;
+    top: 31px;
+    /*Change for different outline color*/
+    border-right-color: #FFFFFF;
+    border-width: 15px;
+  }
+  /*****Right Arrow*****/
+  /*Outline effect style*/
+  .comment-list .panel.arrow.right:before {
+    right: -16px;
+    top: 30px;
+    /*Use boarder color of panel*/
+    border-left-color: inherit;
+    border-width: 16px;
+  }
+  /*Background color effect*/
+  .comment-list .panel.arrow.right:after {
+    right: -14px;
+    top: 31px;
+    /*Change for different outline color*/
+    border-left-color: #FFFFFF;
+    border-width: 15px;
+  }
+}
+.comment-list .comment-post {
+  margin-top: 6px;
+}

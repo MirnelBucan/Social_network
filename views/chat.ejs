@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/chat.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/logo2.png">
+    <title>Chat</title>
+</head>
+<body>
+
+<header id="main-header">
+    <div class="container">
+        <h1>Chat</h1>
+    </div>
+</header>
+
+<nav id="navbar">
+    <div class="container">
+        <ul>
+            <li><a href="/Home">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/post">Posts</a></li>
+            <li><a href="/chat">Chat</a></li>
+            <li><a href="/user/signout">Log out</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container clearfix">
+    <div class="chat">
+        <div class="chat-header clearfix">
+            <div class="chat-about">
+                <div class="chat-num-users">Hello, <span id="name"><%=user.username%></span></div>
+            </div>
+        </div>
+
+        <div class="chat-history">
+            <ul>
+            </ul>
+        </div>
+
+        <div class="chat-message clearfix">
+            <textarea name="message" placeholder ="Type your message" rows="3"></textarea>
+            <button type="submit">Send</button>
+        </div>
+    </div>
+</div>
+<footer id="main-footer">
+    <p>Copyright &copy; 2019 Social Network</p>
+</footer>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/javascripts/chat.js"></script>
+
+</body>
+</html>

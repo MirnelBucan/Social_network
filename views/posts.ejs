@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"
+          id="bootstrap-css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/logo2.png">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <title>Posts</title>
+</head>
+
+<body>
+<header id="main-header">
+    <div class="container">
+        <h1>Posts</h1>
+    </div>
+</header>
+
+<nav id="navbar">
+    <div class="container">
+        <ul>
+            <li><a href="/Home">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/post">Posts</a></li>
+            <li><a href="/chat">Chat</a></li>
+            <li><a href="/user/signout">Log out</a></li>
+        </ul>
+    </div>
+</nav>
+<br>
+<div class="container">
+
+    <!-- start of input -->
+    <article class="row">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="panel panel-default arrow left">
+                <div class="panel-body">
+                    <header class="text-left">
+                        <div class="comment-user" style="margin-bottom: 20px;">
+                            <i class="fa fa-user"></i>
+                            <%= username %>
+                        </div>
+                    </header>
+                    <div class="comment-post form-group">
+                            <textarea id='postContent' class="form-control" placeholder="Enter new post.."
+                                      style="resize: none; height:10rem;">
+
+                            </textarea>
+                        <hr>
+                        <div class="row" style="margin-left: 5px">
+                            <button id='post' class="btn btn-info" style="float:right; margin-right: 10px;">Post
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <!-- end of input-->
+    <div id="post-container">
+        <% if(posts)
+                for (post of posts){
+                    let date = formatDate(post.createdAt);
+        %>
+        <hr>
+        <article class="row">
+            <div class="col-md-2 col-sm-2 hidden-xs">
+                <figure class="thumbnail">
+                    <img class="img-responsive"
+                         src="/images/user-avatar-placeholder.png">
+                    <figcaption class="text-center">
+                        <a href="/profile/<%= post.author._id %>"><%= post.author.username %></a>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-md-10 col-sm-10 col-xs-12">
+                <div class="panel panel-default arrow left">
+                    <div class="panel-body">
+                        <header class="text-left">
+                            <div class="comment-user">
+                                <i class="fa fa-user"></i>
+                                <a href="/profile/<%= post.author._id %>"><%= post.author.username %></a>
+                                <i class="deletePost fa fa-times" style="float: right;" value="<%=post._id%>"></i>
+                            </div>
+                            <hr>
+                            <time class="comment-date" datetime="<%= date %>">
+                                <i class="fa fa-clock-o"></i> <%= date %>
+                            </time>
+                        </header>
+                        <div class="comment-post">
+                            <p>
+                                <%= post.content %>
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="row" style="margin-left: 5px">
+                            <button id='like' class="btn btn-info like" name="<%= post._id %>">Like</button>
+                            <span id='numberOfLikes' class="mr-auto"><%= post.likes %></span>
+                            <button class="btn btn-info comment" style="float:right; margin-right: 10px;">
+                                Comments
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="comments" class="panel panel-default arrow left" style="display:none">
+                    <% if(post.comments)
+                            for(comment of post.comments){
+                        let commentDate = formatDate(comment.createdAt);
+                    %>
+                    <article class="row">
+                        <div class="col-md-2 col-sm-2 hidden-xs">
+                            <figure class="thumbnail">
+                                <img class="img-responsive"
+                                     src="/images/user-avatar-placeholder.png">
+                                <figcaption class="text-center">
+                                    <a href="/profile/<%= comment.author._id %>"><%= comment.author.username %></a>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="col-md-10 col-sm-10 col-xs-12">
+                            <div class="panel panel-default arrow left">
+                                <div class="panel-body">
+                                    <header class="text-left">
+                                        <div class="comment-user">
+                                            <i class="fa fa-user"></i>
+                                            <a href="/profile/<%= comment.author._id %>"><%= comment.author.username %></a>
+                                            <i class="deleteComment fa fa-times" style="float: right;"
+                                               valueComment="<%=comment._id%>" valuePost="<%=post._id%>"></i>
+                                        </div>
+                                        <hr>
+                                        <time class="comment-date" datetime="<%= commentDate %>">
+                                            <i class="fa fa-clock-o"></i> <%= commentDate %>
+                                        </time>
+                                    </header>
+                                    <div class="comment-post">
+                                        <p>
+                                            <%= comment.content %>
+                                        </p>
+                                    </div>
+                                    <hr>
+                                    <div class="row" style="margin-left: 5px">
+                                        <button id='like' class="btn btn-danger likeComment" name="<%= comment._id %>">
+                                            Like comment
+                                        </button>
+                                        <span id='numberOfLikes' class="mr-auto"><%= comment.likes %></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <% } %>
+                    <!-- start of comment input -->
+                    <article id='commentInputContainer' class="row">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="panel panel-default arrow left">
+                                <div class="panel-body">
+                                    <header class="text-left">
+                                        <div class="comment-user" style="margin-bottom: 20px;">
+                                            <i class="fa fa-user"></i>
+                                            <%= username %>
+                                        </div>
+                                    </header>
+                                    <div class="comment-post form-group">
+                                        <textarea id='commentContent' class="form-control" placeholder="Enter new comment.."
+                                      style="resize: none; height:10rem;"></textarea>
+                                        <hr>
+                                        <div class="row" style="margin-left: 5px">
+                                            <button name="<%= post._id%>"class="btn btn-danger newComment"
+                                                    style="float:right; margin-right: 10px;">Comment
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- end of comment input-->
+                </div>
+            </div>
+        </article>
+        <% } %>
+    </div>
+</div>
+<footer id="main-footer">
+    <p>Copyright &copy; 2019 Social Network</p>
+</footer>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="/javascripts/posts.js"></script>
+</body>
+</html>
