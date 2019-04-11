@@ -25,6 +25,9 @@
 .chat .chat-header .chat-num-users, .room .room-header .room-num-rooms {
   color: #92959E;
 }
+span {
+  color: #92959E;
+}
 .fa-users, .fa-th-list {
   float: right;
   color: #D8DADF;
@@ -120,7 +123,6 @@
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .form input {
-  font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -131,7 +133,6 @@
   font-size: 14px;
 }
 .form button {
-  font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
   background: #a25e5c;
@@ -142,9 +143,7 @@
   font-size: 14px;
   cursor: pointer;
 }
-.form button:hover:enabled,.form button:active,.form button:focus {
-  background: #a25e5d;
-}
+
 .form .message, .room-create .message {
   margin: 15px 0 0;
   color: #b3b3b3;
@@ -214,22 +213,14 @@ ul {
   font-weight: bold;
 }
 .chat-message button, .controls a {
-  font-family: "Roboto", sans-serif;
   float: right;
   text-transform: uppercase;
   outline: 0;
-  background: #a25e5c;
   border: 0;
   padding: 15px;
-  color: #FFFFFF;
+  color: #92959E;
   font-size: 14px;
   cursor: pointer;
-}
-button:hover:enabled, button:active, button:focus {
-  background: #a25e5c;
-}
-a.rooms-btn:hover:enabled, a.rooms-btn:active, a.rooms-btn:focus {
-  background: #a25e5c;
 }
 
 .controls {
@@ -273,4 +264,10 @@ a.rooms-btn:hover:enabled, a.rooms-btn:active, a.rooms-btn:focus {
 }
 button:disabled {
   background: gray;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #a25e5c !important;
+  box-shadow: 0 0 0 0.2rem rgba(162,94,92,.25) !important;
 }

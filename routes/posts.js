@@ -103,7 +103,6 @@ router.put('/comment/like/:id', async (req, res, next) => {
   let commentId = req.params.id;
   try {
     let comment = await Comment.findByIdAndUpdate(commentId, {$inc: { likes: 1} });
-    console.log(comment);
     res.json({msg:'success'});
   } catch (err) {
     res.status(500).json(err);

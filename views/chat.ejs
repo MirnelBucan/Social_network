@@ -5,36 +5,31 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/chat.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
-    <link rel="shortcut icon" href="/images/logo2.png">
+    <link rel="shortcut icon" href="/images/network.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Chat</title>
 </head>
 <body>
 
 <header id="main-header">
-    <div class="container">
-        <h1>Chat</h1>
-    </div>
+    <nav id="navbar">
+        <div class="container">
+            <ul class="row">
+                <li class="col"><a href="/Home">Home</a></li>
+                <li class="col"><a href="/profile">Profile</a></li>
+                <li class="col"><a href="/post">Posts</a></li>
+                <li class="col"><a href="/chat">Chat</a></li>
+                <li class="col"><a href="/user/signout">Log out</a></li>
+            </ul>
+        </div>
+    </nav>
 </header>
 
-<nav id="navbar">
-    <div class="container">
-        <ul>
-            <li><a href="/Home">Home</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/post">Posts</a></li>
-            <li><a href="/chat">Chat</a></li>
-            <li><a href="/user/signout">Log out</a></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="container clearfix">
+<div class="container clearfix" style="padding-top: 65px;">
     <div class="chat">
         <div class="chat-header clearfix">
             <div class="chat-about">
-                <div class="chat-num-users">Hello, <span id="name"><%=user.username%></span></div>
+                <div class="chat-num-users">Welcome <span id="name"><%=user.username%></span>, this is your chat.</div>
             </div>
         </div>
 
@@ -44,8 +39,8 @@
         </div>
 
         <div class="chat-message clearfix">
-            <textarea name="message" placeholder ="Type your message" rows="3"></textarea>
-            <button type="submit">Send</button>
+            <textarea class="form-control" name="message" placeholder ="Type your message" rows="3"></textarea>
+            <button type="submit" class="btn btn-light">Send</button>
         </div>
     </div>
 </div>

@@ -2,64 +2,70 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="/images/logo2.png">
+    <link rel="shortcut icon" href="/images/network.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
   	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Profile</title>
     </head>
 
 <body>
-	<header id="main-header">
-		<div class="container">
-			<h1>Profile</h1>
-		</div>
-	</header>
-
+<header id="main-header">
 	<nav id="navbar">
 		<div class="container">
-			<ul>
-				<li><a href="/Home">Home</a></li>
-				<li><a href="/profile">Profile</a></li>
-				<li><a href="/post">Posts</a></li>
-				<li><a href="/chat">Chat</a></li>
-				<li><a href="/user/signout">Log out</a></li>
+			<ul class="row">
+				<li class="col"><a href="/Home">Home</a></li>
+				<li class="col"><a href="/profile">Profile</a></li>
+				<li class="col"><a href="/post">Posts</a></li>
+				<li class="col"><a href="/chat">Chat</a></li>
+				<li class="col"><a href="/user/signout">Log out</a></li>
 			</ul>
 		</div>
 	</nav>
-	
-	<img src="/images/image.jpg" style="width: 200px; height: auto; display: block; margin: 5.5% auto">
+</header>
+<div class="row" style="padding-top: 65px!important;">
+	<div class="col-12">
+		<img src="/images/user.png" style="width: 200px; height: auto; display: block; margin: auto;">
+	</div>
 <%if (profile === 'other') { %>
-	<ul style="text-align: center; font-size: 22px;">
-		<li><a> <b>First Name:</b><%=user.name%></a></li>
-		<li><a> <b>Last Name:</b> <%=user.surname%></a></li>
-		<li><a> <b>Username:</b><%=user.username%></a></li>
-		<li><a> <b>E-mail:</b> <%=user.email%></a></li>
+	<div class="col-12">
+		<h5 style="text-align: center;">User information: <i><%=user.username%></i></h5>
+	<ul class="list-group" style="width:50%; margin:auto; padding-top:15px; font-size: 22px;">
+		<li class="list-group-item"><a> <b>First Name: </b><%=user.name%></a></li>
+		<li class="list-group-item"><a> <b>Last Name: </b> <%=user.surname%></a></li>
+		<li class="list-group-item"><a> <b>Username: </b><%=user.username%></a></li>
+		<li class="list-group-item"><a> <b>E-mail: </b> <%=user.email%></a></li>
 	</ul>
+	</div>
 <% } else { %>
-	<form id="form-user" action="#" method="post" style="position: relative; left: 530px;">
-		<div class="form-box error" data-errormsg="">
-			<label for="input-first"  ><b>First Name: </b></label>
-			<input type="text" id="input-first" autofocus placeholder="First Name" tabindex="1" disabled value="<%=user.name%>">
-		</div>
-		<div class="form-box error" data-errormsg="">
-			<label for="input-last"><b>Last Name: </b></label>
-			<input type="text" id="input-last" autofocus placeholder="Last Name" tabindex="2" disabled value="<%=user.surname%>">
-		</div>
-		<div class="form-box error" data-errormsg="">
-			<label for="input-user"><b>Username: </b></label>
-			<input type="text" id="input-last" autofocus placeholder="Username" tabindex="3" disabled value="<%=user.username%>">
-		</div>
-		<div class="form-box" data-errormsg="">
-			<label for="input-email"><b>E-mail: </b></label>
-			<input type="email" id="input-email" required placeholder="E-mail Address" tabindex="5" disabled value="<%=user.email%>">
-		</div>
-		<div class="form-box">
-			<button id="button-cancel">Submit</button>
-		</div>
-	</form>
+	<div class="col-12">
+		<h5 style="text-align: center;">Your information: <i><%=user.username%></i></h5>
+		<form id="form-user" class="form-group" action="#" method="post" style="position: relative; width:50%; margin: auto;">
+			<div class="error" data-errormsg="">
+				<label for="input-first"  ><b>First Name: </b></label>
+				<input class="form-control" type="text" id="input-first" autofocus placeholder="First Name" tabindex="1" disabled value="<%=user.name%>">
+			</div>
+			<div class="error" data-errormsg="">
+				<label for="input-last"><b>Last Name: </b></label>
+				<input class="form-control" type="text" id="input-last" autofocus placeholder="Last Name" tabindex="2" disabled value="<%=user.surname%>">
+			</div>
+			<div class="error" data-errormsg="">
+				<label for="input-user"><b>Username: </b></label>
+				<input class="form-control" type="text" id="input-last" autofocus placeholder="Username" tabindex="3" disabled value="<%=user.username%>">
+			</div>
+			<div data-errormsg="">
+				<label for="input-email"><b>E-mail: </b></label>
+				<input class="form-control" type="email" id="input-email" required placeholder="E-mail Address" tabindex="5" disabled value="<%=user.email%>">
+			</div>
+			<div class="form-box">
+				<button class="btn btn-light" id="button-cancel">Submit</button>
+			</div>
+		</form>
+	</div>
 <% }%>
+</div>
 	<footer id="main-footer">
 		<p>Copyright &copy; 2019 Social Network</p>
 	</footer>

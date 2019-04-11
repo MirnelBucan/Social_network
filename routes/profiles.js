@@ -2,18 +2,15 @@ const router = require('express').Router();
 const User = require('../models/users');
 
 router.get('/', (req, res, next) => {
-  console.log(req.user);
   let user = {
     email: req.user.email,
     name: req.user.name,
     surname: req.user.surname,
     username: req.user.username
   };
-  console.log(req.user);
   res.render('profile', { user ,profile:'user'});
 });
 router.get('/:id', async (req, res, next) => {
-  console.log(req.user);
   if(req.params.id  === req.user._id){
     let user = {
       email: req.user.email,

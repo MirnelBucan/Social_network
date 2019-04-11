@@ -9,7 +9,6 @@ const User = require('../models/users'),
 function auth (socket, next) {
   // Parse cookie
   cookieParser()(socket.request, socket.request.res, () => {});
-
   // JWT authenticate
   passport.authenticate('jwt', {session: false}, function (error, decryptToken, jwtError) {
     if(!error && !jwtError && decryptToken) {
@@ -18,6 +17,8 @@ function auth (socket, next) {
       next('guest');
     }
   })(socket.request, socket.request.res);
+
+
 }
 module.exports = io => {
   io.on('connection', function (socket) {
@@ -28,8 +29,6 @@ module.exports = io => {
         socket.user_id = user.id;
         socket.emit('connected', `you are connected to chat as ${user.username}`);
       }
-      console.log(user);
-      console.log("socket_userid ", socket.user_id);
     });
 
     socket.on('msg', content => {
@@ -38,12 +37,9 @@ module.exports = io => {
         content: content,
         author: socket.user_id
       };
-      console.log("priliko kreiranja objekta ", obj);
       MessageModel.create(obj, async (err, mess) => {
         if(err) return console.error("MessageModel", err);
-        console.log("messssssssss", mess);
         let newMsg = await MessageModel.findOne({_id: mess._id}).populate({path: 'author', select: '_id username'});
-        console.log("newMsg", newMsg);
         socket.emit("message", newMsg);
         socket.to('all').emit("message", newMsg);
       });
@@ -52,7 +48,7 @@ module.exports = io => {
     socket.on('receiveHistory', () => {
       MessageModel
         .find({})
-        .sort({date: -1})
+        .sort({date: 1})
         .limit(50)
         .sort({date: 1})
           .populate({path: 'author', select: '_id username'})
@@ -60,7 +56,6 @@ module.exports = io => {
         .exec( (err, messages) => {
           if(!err){
             socket.emit("history", messages);
-            console.log('porukeee', messages);
           }
         })
     })

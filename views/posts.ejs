@@ -9,30 +9,26 @@
     <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
-    <link rel="shortcut icon" href="/images/logo2.png">
+    <link rel="shortcut icon" href="/images/network.png">
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
     <title>Posts</title>
 </head>
 
 <body>
 <header id="main-header">
-    <div class="container">
-        <h1>Posts</h1>
-    </div>
+    <nav id="navbar">
+        <div class="container">
+            <ul class="row">
+                <li class="col"><a href="/Home">Home</a></li>
+                <li class="col"><a href="/profile">Profile</a></li>
+                <li class="col"><a href="/post">Posts</a></li>
+                <li class="col"><a href="/chat">Chat</a></li>
+                <li class="col"><a href="/user/signout">Log out</a></li>
+            </ul>
+        </div>
+    </nav>
 </header>
-
-<nav id="navbar">
-    <div class="container">
-        <ul>
-            <li><a href="/Home">Home</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/post">Posts</a></li>
-            <li><a href="/chat">Chat</a></li>
-            <li><a href="/user/signout">Log out</a></li>
-        </ul>
-    </div>
-</nav>
-<br>
+<main style="padding-top: 65px;">
 <div class="container">
 
     <!-- start of input -->
@@ -54,7 +50,7 @@
                             </textarea>
                         <hr>
                         <div class="row" style="margin-left: 5px">
-                            <button id='post' class="btn btn-info" style="float:right; margin-right: 10px;">Post
+                            <button id='post' class="btn btn-light" style="float:right; margin-right: 10px;">Post
                             </button>
                         </div>
                     </div>
@@ -100,9 +96,9 @@
                         </div>
                         <hr>
                         <div class="row" style="margin-left: 5px">
-                            <button id='like' class="btn btn-info like" name="<%= post._id %>">Like</button>
+                            <button id='like' class="btn btn-light like" name="<%= post._id %>">Like</button>
                             <span id='numberOfLikes' class="mr-auto"><%= post.likes %></span>
-                            <button class="btn btn-info comment" style="float:right; margin-right: 10px;">
+                            <button class="btn btn-light comment" style="float:right; margin-right: 10px;">
                                 Comments
                             </button>
                         </div>
@@ -145,7 +141,7 @@
                                     </div>
                                     <hr>
                                     <div class="row" style="margin-left: 5px">
-                                        <button id='like' class="btn btn-danger likeComment" name="<%= comment._id %>">
+                                        <button id='like' class="btn btn-light likeComment" name="<%= comment._id %>">
                                             Like comment
                                         </button>
                                         <span id='numberOfLikes' class="mr-auto"><%= comment.likes %></span>
@@ -172,7 +168,7 @@
                                       style="resize: none; height:10rem;"></textarea>
                                         <hr>
                                         <div class="row" style="margin-left: 5px">
-                                            <button name="<%= post._id%>"class="btn btn-danger newComment"
+                                            <button name="<%= post._id%>"class="btn btn-light newComment"
                                                     style="float:right; margin-right: 10px;">Comment
                                             </button>
                                         </div>
@@ -188,6 +184,7 @@
         <% } %>
     </div>
 </div>
+</main>
 <footer id="main-footer">
     <p>Copyright &copy; 2019 Social Network</p>
 </footer>
