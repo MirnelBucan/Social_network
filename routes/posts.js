@@ -72,7 +72,7 @@ router.post('/:id/comment/create', async (req, res, next) => {
     // Save that comment to db
     let comment = await newComment.save();
     // Set reference to newly created post
-    let post = await Post.findOneAndUpdate({_id: postId},{ $push:{ comments: comment._id }});
+    let post = await Post.findOneAndUpdate({_id: req.params.id},{ $push:{ comments: comment._id }});
     // Create response for comment
     let createdComment = createCommentResponse({comment,user: req.user});
     res.json(createdComment);
