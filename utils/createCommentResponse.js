@@ -6,7 +6,7 @@ module.exports = data =>{
                         <div class="col-md-2 col-sm-2 hidden-xs">
                             <figure class="thumbnail">
                                 <img class="img-responsive"
-                                     src="/images/user-avatar-placeholder.png">
+                                     src="/images/user.png">
                                 <figcaption class="text-center">
                                     <a href="/profile/${data.user._id}">${data.user.username}</a>
                                 </figcaption>
@@ -34,7 +34,7 @@ module.exports = data =>{
                                     </div>
                                     <hr>
                                     <div class="row" style="margin-left: 5px">
-                                        <button id='like' class="btn btn-danger likeComment" name="${data.comment._id}">
+                                        <button id='like' class="btn btn-light likeComment" name="${data.comment._id}">
                                             Like comment
                                         </button>
                                         <span id='numberOfLikes' class="mr-auto">${data.comment.likes}</span>

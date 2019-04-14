@@ -11,26 +11,9 @@ function response (data) {
   return resp;
 }
 
-$(".logout-btn").on('click', e => {
-  e.preventDefault();
-  $.ajax({
-    url: '/logout',
-    type: 'POST',
-    data: {},
-    success: (res) => {
-      alert(response(res));
-      location.reload();
-    },
-    error: (res) => {
-      alert(response(res));
-    }
-  });
-});
-
 $( document ).ready( () => {
   var socket = io.connect('http://localhost:3000');
   socket.on('connected', function (msg) {
-    console.log(msg);
     socket.emit('receiveHistory');
   });
 
@@ -47,7 +30,6 @@ $( document ).ready( () => {
 
     var selector = $("textarea[name='message']");
     var messageContent = selector.val().trim();
-    console.log(messageContent);
     if(messageContent !== '') {
       socket.emit('msg', messageContent);
       selector.val('');
@@ -59,11 +41,9 @@ $( document ).ready( () => {
   }
 
   function addMessage(message) {
-    message.date      = (new Date(message.date)).toLocaleString();
+    message.date = (new Date(message.date)).toLocaleString();
 
-    message.content   = encodeHTML(message.content);
-    console.log("ovo su poruke ", message);
-
+    message.content = encodeHTML(message.content);
     var html = `
             <li>
                 <div class="message-data">
@@ -75,6 +55,5 @@ $( document ).ready( () => {
 
     $(html).hide().appendTo('.chat-history ul').slideDown(200);
 
-    //$(".chat-history").animate({ scrollTop: $('.chat-history')[0].scrollHeight}, 500);
   }
 });

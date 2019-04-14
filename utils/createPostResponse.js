@@ -6,7 +6,7 @@ module.exports = data =>{
             <div class="col-md-2 col-sm-2 hidden-xs">
                 <figure class="thumbnail">
                     <img class="img-responsive"
-                         src="/images/user-avatar-placeholder.png">
+                         src="/images/user.png">
                     <figcaption class="text-center">
                         <a href="/profile/${data.user._id}">${data.user.username}</a>
                     </figcaption>
@@ -33,9 +33,9 @@ module.exports = data =>{
                         </div>
                         <hr>
                         <div class="row" style="margin-left: 5px">
-                            <button id='like' class="btn btn-info like" name="${data.post._id}">Like</button>
+                            <button id='like' class="btn btn-light like" name="${data.post._id}">Like</button>
                             <span id='numberOfLikes' class="mr-auto">${data.post.likes}</span>
-                            <button id='comment' class="btn btn-info comment" style="float:right; margin-right: 10px;">Comments</button>
+                            <button id='comment' class="btn btn-light comment" style="float:right; margin-right: 10px;">Comments</button>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@ module.exports = data =>{
                                       style="resize: none; height:10rem;"></textarea>
                                         <hr>
                                         <div class="row" style="margin-left: 5px">
-                                            <button name="${data.post._id}"class="btn btn-danger newComment"
+                                            <button name="${data.post._id}"class="btn btn-light newComment"
                                                     style="float:right; margin-right: 10px;">Comment
                                             </button>
                                         </div>
